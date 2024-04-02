@@ -20,15 +20,18 @@ public class ItemService {
         return result;
     }
     public Item addItemService(ItemDto itemDto){
-        var result = itemRepository.save(itemDto.toEntity());
+        Item result = itemRepository.save(itemDto.toEntity());
         return result;
     }
-    public Item editItemService(@RequestParam("id") Long id, ItemDto itemDto) throws Exception {
-        Optional<Item> result = itemRepository.findById(id);
+    public Item editItemService(@RequestParam("id") Long id,
+                                @RequestParam("writer") String writer,
+                                ItemDto itemDto) throws Exception {
         Item item = new Item();
         item.setId(id);
         item.setTitle(itemDto.getTitle());
         item.setPrice(itemDto.getPrice());
+        item.setImageUrl(itemDto.getImageUrl());
+        item.setWriter(writer);
         itemRepository.save(item);
         return item;
     }

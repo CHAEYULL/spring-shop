@@ -23,7 +23,7 @@ public class SecurityConfig {
         );
         http.formLogin((formLogin) ->
                 formLogin.loginPage("/api/login")
-                        .defaultSuccessUrl("http://localhost:3000/")
+                        .defaultSuccessUrl("/")
         );
         http.logout(logout ->
                 logout.logoutUrl("/api/logout")

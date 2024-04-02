@@ -17,6 +17,11 @@ public class Item {
     private String title;
 
     private Integer price;
+
+    private String imageUrl;
+
+    private String writer;
+
     public void setId(Long id) throws Exception{
         if(id != id){
             throw new Exception();
@@ -40,10 +45,26 @@ public class Item {
             this.price = price;
         }
     }
-    public Item(Long id, String title, Integer price){
+    public void setImageUrl(String imageUrl) throws Exception{
+        if (imageUrl.isEmpty()){
+            throw new Exception();
+        } else {
+            this.imageUrl =imageUrl;
+        }
+    }
+    public void setWriter(String writer) throws Exception {
+        if (writer.isEmpty()){
+            throw new Exception();
+        } else {
+            this.writer = writer;
+        }
+    }
+    public Item(Long id, String title, Integer price, String imageUrl, String writer){
         this.id = id;
         this.title = title;
         this.price = price;
+        this.imageUrl = imageUrl;
+        this.writer = writer;
     }
 
     public Item() {
